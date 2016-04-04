@@ -135,6 +135,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\AuthZeroConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\ShipmentsController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
