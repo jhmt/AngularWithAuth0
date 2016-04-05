@@ -2,7 +2,9 @@
     'auth0',
     'ngRoute',
     'shipments.home',
-    'shipments.login'
+    'shipments.login',
+    'angular-storage',
+    'angular-jwt'
 ])
 .config(function ($routeProvider, authProvider) {
     $routeProvider
@@ -22,6 +24,18 @@
         loginUrl: '/login'
     })
 })
-.run(function (auth) {
+.run(function ($rootScope, auth, store, jwtHelper, $location) {
+    $rootScope.$on('$locationChangeStart', function () {
+        if (!auth.isAuthenticated) {
+            var token = store.get('token');
+            if (token) {
+                if (!jwtHelper.isTokenExpired(token)) {
+                    auth.authenticate(store.get('profile'), token);
+                } else {
+                    $location.path('/login');
+                }
+            }
+        }
+    });
     auth.hookEvents();
 })
