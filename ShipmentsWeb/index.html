@@ -4,11 +4,17 @@
     <title>Shipments</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link href="assets/css/site.css" rel="stylesheet" />
+    <link href="app/components/home/home.css" rel="stylesheet" />
+    <link href="app/components/login/login.css" rel="stylesheet" />
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-route.js"></script>
     <script src="app/app.js"></script>
     <script src="app/config.js"></script>
+    <script src="app/components/home/home.js"></script>
+    <script src="app/components/login/login.js"></script>
 </head>
 <body>
-
+    <div class="container" ng-view></div>
 </body>
 </html>
