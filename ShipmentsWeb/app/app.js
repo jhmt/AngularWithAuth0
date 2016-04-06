@@ -6,7 +6,7 @@
     'angular-storage',
     'angular-jwt'
 ])
-.config(function ($routeProvider, authProvider) {
+.config(function ($routeProvider, authProvider, $httpProvider, jwtInterceptorProvider) {
     $routeProvider
         .when('/', {
             controller: 'HomeCtrl',
@@ -22,7 +22,11 @@
         domain: AUTH0_DOMAIN,
         clientID: AUTH0_CLIENT_ID,
         loginUrl: '/login'
-    })
+    });
+
+    jwtInterceptorProvider.tokenGetter = function (store) {
+        return store.get('token');
+    }
 })
 .run(function ($rootScope, auth, store, jwtHelper, $location) {
     $rootScope.$on('$locationChangeStart', function () {

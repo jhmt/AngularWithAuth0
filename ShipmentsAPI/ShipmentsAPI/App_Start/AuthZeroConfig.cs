@@ -59,8 +59,7 @@ namespace ShipmentsAPI
         {
             var issuer = "https://" + Domain + "/";
             var audience = ClientID;
-            var secret = TextEncodings.Base64.Encode(
-                TextEncodings.Base64Url.Decode(ClientSecret));
+            var secret = TextEncodings.Base64.Encode(TextEncodings.Base64Url.Decode(ClientSecret));
 
             app.UseJwtBearerAuthentication(new Microsoft.Owin.Security.Jwt.JwtBearerAuthenticationOptions
             {
